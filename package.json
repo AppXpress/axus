@@ -1,6 +1,6 @@
 {
   "name": "axus",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "AppXpress wrapper for a CLI/REPL and Unit Testing (AppXpress Unit test Support)",
   "main": "target/appx-test-support.js",
   "directories": {
