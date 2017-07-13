@@ -1,6 +1,6 @@
 /*jshint expr: true*/
 const expect = require('chai').expect;
 
-describe('ContextBuilder', () => {
+describe('ModuleBuilder', () => {
     it('can build a context');
 });
