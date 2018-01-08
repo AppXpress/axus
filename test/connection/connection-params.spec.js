@@ -20,7 +20,7 @@ describe('ConnectionParams', () => {
               url: 'https://commerce-demo.gtnexus.com/rest/'
           };
           const validFn = ConnectionParams.validate.bind(null, params);
-          expect(validFn).to.throw(/appx\.config is missing the following:/);
+          expect(validFn).to.throw(/profile is missing the following:/);
         });
     });
 });
