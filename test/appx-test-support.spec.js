@@ -101,4 +101,19 @@ describe('axus-test-support', () => {
     });
   });
 
+  describe('register API version', () => {
+    it('can default contextualized API binding', () => {
+      let ctx = axus.require('./test/resources/testModule').useLocal();
+      expect(ctx.Providers.bridge.apiVersion).to.equal('310');
+    });
+
+    it('can register contextualized API bindings', () => {
+      let ctx1 = axus.require('./test/resources/testModule').useApiVersion('3.1.0').useLocal();
+      let ctx2 = axus.require('./test/resources/testModule').useApiVersion('3.2.0').useRest();
+
+      expect(ctx1.Providers.bridge.apiVersion).to.equal('3.1.0');
+      expect(ctx2.Providers.bridge.apiVersion).to.equal('3.2.0');
+    });
+  });
+
 });
