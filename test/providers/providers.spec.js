@@ -25,6 +25,24 @@ const seed = {
                     }]
                 }
             }]
+        },
+        'NumberingPool': {
+            'testPool':
+                "aaa015503",
+            'testPool/3': {
+                "numbers": {
+                    "__metadata": {
+                        "apiVersion": "310",
+                        "type": "NumberingPool",
+                        "self": "https://network-rctq.qa.gtnexus.com/rest/310/NumberingPool/testPool/aquire"
+                    },
+                    "numbers": [
+                        "aaa015509",
+                        "aaa015510",
+                        "aaa015511"
+                    ]
+                }
+            }
         }
     }
 };
@@ -227,6 +245,18 @@ describe('providers', () => {
                 let x = lProviders.getObjectFactoryProvider();
                 let created = x.newObject('$MyType');
                 expect(x.getCreated()).to.deep.equal([created]);
+                done();
+            });
+            it('can fetch the next numberingPool value', (done) => {
+                let x = lProviders.getObjectFactoryProvider();
+                let numberingPool = lProviders.getObjectFactoryProvider().getNextPoolNumber('testPool');
+                expect(numberingPool).to.equal('aaa015503');
+                done();
+            });
+            it('can fetch the next 3 numberingPool values', (done) => {
+                let x = lProviders.getObjectFactoryProvider();
+                let numberingPool = lProviders.getObjectFactoryProvider().getNextPoolNumber('testPool', 3);
+                expect(numberingPool.numbers.numbers).to.deep.equal(['aaa015509', 'aaa015510', 'aaa015511']);
                 done();
             });
         });
