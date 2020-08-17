@@ -1,6 +1,6 @@
 /*jshint expr: true*/
 const expect = require('chai').expect;
-const sync = require('synchronize');
+//const sync = require('synchronize');
 const Bridge = require('../../lib/providers/bridge');
 const Providers = require('../../lib/providers/providers');
 const RestScriptEngineApiRequest = require('../../lib/providers/api/rest-script-engine-api-request');
